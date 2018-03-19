@@ -2,3 +2,11 @@
 源码分析
 深度讲解博客
 http://blog.csdn.net/freelander_j/article/details/52925745
+
+
+两者最大的区别就在于
+
+commit：
+安排该事务的提交。这一承诺不会立即发生;它将被安排在主线程上，以便在线程准备好的时候完成。
+commitAllowingStateLoss：
+与 commit类似，但允许在活动状态保存后执行提交。这是危险的，因为如果Activity需要从其状态恢复，那么提交就会丢失，因此，只有在用户可以意外地更改UI状态的情况下，才可以使用该提交。
